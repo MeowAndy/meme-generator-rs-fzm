@@ -81,6 +81,37 @@ GET  /image/{image_id}
 
 ---
 
+
+## Windows 原生部署
+
+Windows 用户请看：
+
+```text
+docs/WINDOWS.md
+```
+
+快速安装：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\install-windows.ps1
+```
+
+启动：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File C:\meme-api\start-windows.ps1
+```
+
+检查：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File C:\meme-api\check-windows.ps1
+```
+
+Windows 扩展库使用 `.dll`，例如 `meme-emoji-windows-x86_64.dll`；Linux 的 `.so` 不能直接在 Windows 使用。
+
+---
+
 ## 3. 一键部署 systemd 版
 
 ### 系统要求
