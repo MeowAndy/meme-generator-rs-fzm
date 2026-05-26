@@ -1,0 +1,7 @@
+# meme-generator-rs config example
+# Actual keys depend on upstream meme-generator-rs version.
+# The install script creates this file under /opt/meme-api/data/config.toml.
+
+[server]
+host = "0.0.0.0"
+port = 2233

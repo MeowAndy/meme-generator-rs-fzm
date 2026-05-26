@@ -1,0 +1,9 @@
+[Unit]
+Description=Update meme-generator-rs extension libraries
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+Environment=INSTALL_DIR=__INSTALL_DIR__
+ExecStart=__INSTALL_DIR__/scripts/update-libraries.sh

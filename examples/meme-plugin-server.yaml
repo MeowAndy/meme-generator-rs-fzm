@@ -1,0 +1,4 @@
+# /root/Yunzai/plugins/meme-plugin/config/config/server.yaml
+url: 'http://你的服务器IP:2234'
+retry: 3
+timeout: 15

@@ -1,0 +1,17 @@
+[Unit]
+Description=Meme Generator RS API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=__INSTALL_DIR__
+Environment=HOME=__INSTALL_DIR__
+Environment=MEME_HOME=__INSTALL_DIR__/data
+ExecStart=__INSTALL_DIR__/bin/meme server --host 0.0.0.0 --port __API_PORT__
+Restart=always
+RestartSec=3
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

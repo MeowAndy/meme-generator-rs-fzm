@@ -1,0 +1,25 @@
+services:
+  meme-api:
+    image: ghcr.io/memecrafters/meme-generator-rs:latest
+    container_name: meme-api
+    restart: unless-stopped
+    ports:
+      - "2233:2233"
+    volumes:
+      - ./data:/data
+    command: ["server", "--host", "0.0.0.0", "--port", "2233"]
+
+  meme-compat-proxy:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.proxy
+    container_name: meme-compat-proxy
+    restart: unless-stopped
+    ports:
+      - "2234:2234"
+    environment:
+      MEME_BACKEND: http://meme-api:2233
+      MEME_FALLBACK: https://meme.pippi.top/pippi
+      MEME_ENABLE_FALLBACK: "1"
+    depends_on:
+      - meme-api
